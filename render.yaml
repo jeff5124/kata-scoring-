@@ -1,0 +1,22 @@
+# Déploiement Render (Blueprint) : un seul service web qui sert l'API, le temps réel et les pages du site.
+# La base reste sur Neon : DATABASE_URL est demandée à la création du Blueprint.
+services:
+  - type: web
+    name: kata-scoring
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: >-
+      cd web && npm ci --include=dev && STATIC_EXPORT=1 NEXT_PUBLIC_SAME_ORIGIN=1 npm run build &&
+      cd ../kata-scoring && npm ci --include=dev && npm run build
+    startCommand: cd kata-scoring && npm start
+    healthCheckPath: /katas
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: WEB_DIR
+        value: ../web/out
+      - key: DATABASE_URL
+        sync: false
+      - key: AUTH_SECRET
+        generateValue: true

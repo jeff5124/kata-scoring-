@@ -1,0 +1,35 @@
+{
+  "name": "kata-scoring",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Notation de kata WKF 2026.0 : moteur de règles, API NestJS et temps réel",
+  "main": "dist/api/main.js",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.json",
+    "start": "node --env-file-if-exists=.env --dns-result-order=ipv4first --network-family-autoselection-attempt-timeout=5000 dist/api/main.js",
+    "db:migrate": "psql \"$DATABASE_URL\" -f db/schema.sql && psql \"$DATABASE_URL\" -f db/seed_katas.sql"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "socket.io-client": "^4.8.4",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "dependencies": {
+    "@nestjs/common": "^12.4.2",
+    "@nestjs/core": "^12.4.2",
+    "@nestjs/platform-express": "^12.4.2",
+    "@nestjs/platform-socket.io": "^12.4.2",
+    "@nestjs/websockets": "^12.4.2",
+    "pg": "^8.23.1",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "socket.io": "^4.8.4"
+  }
+}
