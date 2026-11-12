@@ -1290,3 +1290,30 @@ code {
     overflow-x: auto;
   }
 }
+
+/* ───────── Emblème ───────── */
+
+.logo {
+  flex: none;
+  display: block;
+}
+
+.home .logo {
+  margin-bottom: 8px;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.45));
+}
+
+.login .logo {
+  margin-bottom: 4px;
+}
+
+.idle .logo {
+  margin: 0 auto 2vh;
+  opacity: 0.95;
+}
+
+.board-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}

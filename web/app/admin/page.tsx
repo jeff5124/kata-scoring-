@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import { errorText, useRequiredSession } from '@/lib/session';
+import { Logo } from '../logo';
 import type { Athlete, CategorySummary, CompetitionDetail, CompetitionSummary, Entry, Federation } from '@/lib/types';
 
 type Tab = 'categories' | 'athletes' | 'officials' | 'tatamis';
@@ -112,6 +113,7 @@ export default function AdminPage() {
   return (
     <div className="admin">
       <header className="bar">
+        <Logo size={28} />
         <span className="ctx">
           <b>Administration</b>
         </span>

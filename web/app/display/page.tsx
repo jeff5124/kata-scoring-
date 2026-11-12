@@ -2,6 +2,7 @@
 
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { Logo } from '../logo';
 import { api } from '@/lib/api';
 import { useLive } from '@/lib/live';
 import { format } from '@/lib/score';
@@ -57,6 +58,7 @@ function Board() {
   if (bout === null) {
     return (
       <div className="idle">
+        <Logo size={160} title="Notation kata" />
         <h1>En attente du prochain combat</h1>
         <p>{status === 'offline' ? 'Connexion au serveur perdue, nouvelle tentative…' : 'Les notes apparaîtront ici.'}</p>
       </div>
@@ -85,7 +87,8 @@ function Duel({ bout }: { bout: Bout }) {
   return (
     <main className="board" data-reveal={revealed} key={`${bout.id}-${revealed}`} style={{ '--n': total } as React.CSSProperties}>
       <header className="board-top">
-        <span>
+        <span className="board-title">
+          <Logo size={36} />
           <b>{bout.category}</b> · {bout.stage.label}
           {bout.group ? ` · ${bout.group}` : ''}
         </span>

@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import { Logo } from './logo';
 
 export default function Home() {
   return (
     <main className="home">
+      <Logo size={96} title="Notation kata" />
       <h1>Notation kata</h1>
-      <p>Règlement WKF 2026.0</p>
+      <p>Selon le règlement de compétition kata WKF 2026.0</p>
       <nav>
         <Link href="/admin" className="home-link">
           <strong>Administration</strong>

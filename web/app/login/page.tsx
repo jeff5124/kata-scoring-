@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useState } from 'react';
 import { ApiError, api, saveSession } from '@/lib/api';
 import { homeFor } from '@/lib/session';
+import { Logo } from '../logo';
 import type { Session } from '@/lib/types';
 
 function LoginForm() {
@@ -38,6 +39,7 @@ function LoginForm() {
   return (
     <main className="login">
       <form onSubmit={submit}>
+        <Logo size={64} title="Notation kata" />
         <h1>Connexion</h1>
         <label>
           E-mail

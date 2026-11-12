@@ -5,6 +5,7 @@ import { api } from '@/lib/api';
 import { useLive } from '@/lib/live';
 import { format } from '@/lib/score';
 import { errorText, useRequiredSession } from '@/lib/session';
+import { Logo } from '../logo';
 import type { Bout, BracketStage, CompetitionDetail, CompetitionSummary, Kata, Side } from '@/lib/types';
 
 const STATUS: Record<string, string> = {
@@ -163,6 +164,7 @@ export default function TablePage() {
   return (
     <div className="desk">
       <header className="bar">
+        <Logo size={28} />
         <span className="ctx">
           <b>Table officielle</b>
           {competition ? ` · ${competition.name}` : ''}

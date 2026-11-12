@@ -6,6 +6,7 @@ import { ApiError, api, loadSession, saveSession } from '@/lib/api';
 import { useLive } from '@/lib/live';
 import { allowedNext, format, isComplete, preview, tenths } from '@/lib/score';
 import type { MyBout, Session, Side } from '@/lib/types';
+import { Logo } from '../logo';
 
 const STATUS_TEXT: Record<string, string> = {
   CALLED: 'Combat appelé',
@@ -111,6 +112,7 @@ export default function JudgePage() {
   return (
     <div className="judge">
       <header className="bar">
+        <Logo size={28} />
         <div className="ctx">
           {current ? (
             <>
